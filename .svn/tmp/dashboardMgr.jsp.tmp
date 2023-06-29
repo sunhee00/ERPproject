@@ -1,0 +1,380 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Job Korea</title>
+
+<jsp:include page="/WEB-INF/view/common/common_include.jsp"></jsp:include>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<!-- D3 -->
+<style>
+//
+click-able rows
+	.clickable-rows {tbody tr td { cursor:pointer;
+	
+}
+
+.el-table__expanded-cell {
+	cursor: default;
+}
+}
+/*메인베너 영역 시작*/
+.banner {
+    margin-top: 10px;
+    height: 600px;
+    width: 800px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.slider{
+    width: 6500px;
+    overflow: hidden;
+    position: relative;
+}
+.slider_image {
+    width: 1300px;
+    height: 600px;
+    float: left;
+    margin: 0;
+}
+.control {
+    position: absolute;
+    bottom: 105px;
+    left: 595px;
+    height: 30px;
+    overflow: hidden;
+}
+.control_button {
+    position: relative;
+    font-size: 1.5em;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #777;
+    float: left;
+}
+.control_button:hover {
+    color: #000;
+}
+.control_button.active {
+    color: #000;
+}
+.left_right_control {
+    position: absolute;
+    width: 1300px;
+    height: 100px;
+    top: 250px;
+    
+}
+.left_control {
+    float: left;
+    
+}
+.right_control {
+    float: right;
+    
+    
+}
+/*메인베너 영역 종료*/
+</style>
+<script type="text/javascript">
+<<<<<<< .mine
+=======
+
+//슬라이드
+$(function () {
+    //banner slide start
+    $('.slider').append($('.slider_image').first().clone());
+    $('.slider').prepend($('.slider_image').eq(-2).clone());
+    let index=1;
+    let auto;
+    moveSlider(index);
+    autoSlider();
+    $('.control_button').click(function (){
+        index=$(this).index();
+        moveSlider(index+1);
+    });
+    $('.left_control').click(function () {
+        if(index > 1 ) {
+            index--;
+            moveSlider(index);
+        }else {
+            $('.slider').css('left',-5200);
+            index=3;
+            moveSlider(index);
+        }
+    });
+    $('.right_control').click(function () {
+        if(index < 3 ) {
+            index++;
+            moveSlider(index);
+        }else {
+            $('.slider').css('left',0);
+            index=1;
+            moveSlider(index);
+        }
+    });
+    $('.banner').hover(function () {
+        clearInterval(auto);
+    },function () {
+        autoSlider();
+    });
+    function moveSlider(index) {
+        $('.slider').animate({
+            left:-(index*1300)
+        },'slow');
+        $('.control_button').removeClass('active');
+        $('.control_button').eq(index-1).addClass('active');
+    }
+    //자동슬라이드
+    function autoSlider () {
+        auto=setInterval(function () {
+            $('.right_control').trigger('click'); 
+        },3000);
+    }
+    //banner slide finish
+});
+    
+    
+    
+        var pageSizeinf  = 3;
+        var pageBlockSizeinquiry  = 10;
+
+        var noticeareavar;
+        var noticeeditvue;
+        var vuevar;
+        var vuebind;
+        var vuecheck;
+        var vueradio;
+        var vueprop1;
+        var vueprop2;
+        var vueoption;
+        var vuecompute;
+        var watchExampleVM;
+        var divComGrpCodList;
+        var divComGrpCoddetail;
+>>>>>>> .r93
+        
+		//페이징 설정
+		var pageSize = 10;     
+		var pageBlockSize = 5;  
+		
+		/* onload 이벤트  */
+		$(document).ready(function() {
+			fn_noticelist();
+			
+	    });
+		
+		//공지사항
+		function fn_noticelist(pagenum) {
+			
+			pagenum = pagenum || 1;
+			
+			var param = {
+			 	pageSize : pageSize
+			  , pageBlockSize : pageBlockSize
+			  , pagenum : pagenum
+			}
+			
+			var listcollabck = function(returnvalue) {
+				console.log(returnvalue);
+				
+				$("#listnotice").empty().append(returnvalue);
+				
+				var  totalcnt = $("#totalcnt").val();
+				
+				console.log("totalcnt : " + totalcnt);
+
+			}
+			
+			callAjax("/mngNot/noticelist.do", "post", "text", false, param, listcollabck) ;
+				
+		}
+</script>
+
+</head>
+<body>
+
+
+	<div id="wrap_area">
+
+		<h2 class="hidden">컨텐츠 영역</h2>
+		<div id="container">
+			<ul>
+				<li class="lnb">
+					<!-- lnb 영역 --> <jsp:include
+						page="/WEB-INF/view/common/lnbMenu.jsp"></jsp:include> <!--// lnb 영역 -->
+				</li>
+				<li class="contents">
+					<!-- contents -->
+					<h3 class="hidden">contents 영역</h3> <!-- content -->
+	               
+					<div class="content" style="margin-bottom:20px;">
+                       
+						<p class="Location">
+							<a href="../dashboard/dashboard.do" class="btn_set home">메인으로</a> <span
+								class="btn_nav bold">메인</span> <a href="../dashboard/dashboard.do"
+								class="btn_set refresh">새로고침</a>
+						</p>
+                         <div>
+						        <p class="conTitle" style="margin-bottom: 1%;">
+									<span>대광유통</span> 
+									<span class="fr"> 
+										 DeaKwang corporation 
+									</span>
+								</p>	
+								<div>
+                                    
+                                      <!-- 메인화면 이미지 -->
+                                     <%-- <img src="${CTX_PATH}/images/admin/login/dk_main_img_7.jpg"  width="900px" height="220px"> --%>
+<<<<<<< .mine
+                                     
+								</div> 
+								<!-- 공지사항,캘린더 영역 -->
+								<div>
+									<!-- 공지사항 -->
+									<div class="noticeList">
+										<table class="col">
+											<caption>caption</caption>
+											<colgroup>
+												<col width="15%">
+=======
+								</div>  
+								<!--메인베너영역시작-->
+						      <div class="banner">
+						          <div class="slider">
+						              <img class="slider_image" src="/images/admin/login/dk_logo_clear_5.png" alt="sale" >
+						              <img class="slider_image" src="/images/admin/login/dk_logo_clear_5.png" alt="banner" >
+						              <img class="slider_image" src="/images/admin/login/dk_logo_clear_5.png" alt="banner" >
+						          </div>
+						          <!--컨트롤 버튼 영역-->
+						          <div class="control">
+						              <div class="control_button">●</div>
+						              <div class="control_button">●</div>
+						              <div class="control_button">●</div>
+						          </div>
+						          <!--좌우 컨트롤 버튼 패널-->
+						          <div class="left_right_control">
+						              <img class="left_control" src="/images/admin/login/dk_logo_clear_5.png" alt="leftControl">
+						              <img class="right_control" src="/images/admin/login/dk_logo_clear_5.png" alt="rightControl">
+						          </div>
+						      </div>
+						      <!--메인베너영역종료-->
+										    <tbody>
+										    		 
+										          <tr>
+										               <td><b><h6>시작</h6></b></td>
+										               <td>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://brunch.co.kr/@clay1987/138" target="_blank">OverView</a>
+										               </td>
+										          <tr>
+										          <tr>
+										               <td><b><h6>VueJS 설치</h6></b></td>
+										               <td>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://code-daniel.tistory.com/80" target="_blank">CDN&NPM</a>
+										               </td>
+										          <tr>		
+										          <tr>
+										               <td>VueJS Life Cycle</td>
+										               <td>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://wormwlrm.github.io/2018/12/29/Understanding-Vue-Lifecycle-hooks.html" target="_blank">Life Cycle</a>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://velog.io/@onehousesilver/Vue3-life-cycle-hook" target="_blank">Vue3 Life Cycle</a>
+										                       
+										               </td>
+										          <tr>		
+										          <tr>
+										               <td>공식 사이트</td>
+										               <td>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://kr.vuejs.org/" target="_blank">공식 한국 VusJS</a>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://vuejsexamples.com/" target="_blank">VusJS Example</a>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://cli.vuejs.org/" target="_blank">VusJS 개발도구 VueCli</a> 
+										               </td>
+										          <tr>
+										          <tr>
+										               <td>Vue School </td>
+										               <td>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://v3.ko.vuejs.org/api/instance-properties.html#el" target="_blank"> 인스턴스</a>
+										               </td>
+										          <tr>
+										          <tr>
+										               <td>VueJS 개인 불로그</td>
+										               <td>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://codelabs-vue.web.app/" target="_blank">개인 불로그</a>
+										               </td>
+										          <tr>		
+										          <tr>
+										               <td>자바스크립트</td>
+										               <td>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://joshua1988.github.io/web-development/translation/essential-es6-features-for-vuejs/" target="_blank">ES6</a>
+										               </td>
+										          <tr>	
+										          <tr>
+										               <td>테스트 사이트</td>
+										               <td>
+										                       &nbsp&nbsp&nbsp&nbsp&nbsp<a  href="https://jsfiddle.net/boilerplate/vue" target="_blank">jsfiddle</a>
+										               </td>
+										          <tr>		
+										          <tr>
+										               <td colspan=2>
+										                      <b>** VueJS Life Cycle 종류 별로 스크립트의 option으로 사용 가능(beforeCreate, Created 등) 	</b>
+										               </td>
+										          <tr>				    
+										    </tbody>
+										 
+										 
+										 </table>
+								
+								
+								</div>
+						</div>  						
+						<br>
+						
+                        <div id="vuevar">
+						        <p class="conTitle" style="margin-bottom: 1%;">
+									<span>1. v-model(VueJS 내부 변수)</span> 
+									<span class="fr"> 
+										 입력 문자 숫자, Vue 변수 양방향: v-model
+									</span>
+								</p>
+								<div class="fixed-table-body">		
+										<table width="100%" class="col" border=0>
+		                                    <colgroup>
+											    <col width="40%">
+>>>>>>> .r93
+												<col width="40%">
+												<col width="15%">
+												<col width="15%">
+												<col width="15%">
+											</colgroup>
+				
+											<thead>
+												<tr>
+													<th scope="col">글번호</th>
+													<th scope="col">제목</th>
+													<th scope="col">작성일자</th>
+													<th scope="col">작성자</th>
+													<th scope="col">삭제여부</th>
+												</tr>
+											</thead>
+											<tbody id="listnotice"></tbody>
+										</table>
+									</div>
+									<!-- 캘린더 -->
+									<div></div>
+								
+								
+								</div>
+								
+						
+    					</div>
+				</div>
+   	 	</div>
+	</div>
+</body>
+</html>

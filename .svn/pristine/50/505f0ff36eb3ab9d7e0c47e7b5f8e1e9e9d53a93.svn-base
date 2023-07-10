@@ -136,7 +136,7 @@
 	function fn_dlvInsert() {
 		//발주수량제한
 		var maxNum = 3;
-		if($("#dlv_amt").val().length > maxNum) {
+		if($("#dlv_amt").val() > maxNum) {
 			alert("발주수량초과.3자리로 입력해주세요");
 			return;
 		}

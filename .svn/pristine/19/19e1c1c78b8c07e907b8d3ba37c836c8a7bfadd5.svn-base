@@ -89,9 +89,6 @@ color:black;
 width: 650px;
 }
 
-.textAreaRemain{
-
-}
 
 </style>
 <meta charset="UTF-8">
@@ -259,23 +256,7 @@ width: 650px;
 	
 	//////////////////////////   위는 파일 업이 처리
 	/////////////////////////    file upload
-	function fn_textArea() {
-	      var totText = 20;
-	      //남은 글자 수
-	      var remainText;
-	      //현재 작성한 글자 수
-	      var expenonLength = $("#expen_inf").val().length;
-	      //현재 남은 글자 수
-	      remainText = totText - expenonLength;
-	      
-	      if(remainText < 0 ) {
-	         $("#textAreaRemain").html("글자 수 초과").css("color","red");
-	         return;
-	      }
-	      
-	      $("#textAreaRemain").html(remainText + "/" + totText).css("color","black");
-	      
-	   }
+	
 	function fn_openpopupfile() {
         popupinitfile();
 		
@@ -370,8 +351,6 @@ width: 650px;
 			 $("#expen_date").attr("readonly",true); 
 			 $("#expen_inf").attr("readonly",true); 
 		
-			
-			 
 			if(object.appro_yn === "Y"){
 				$("#btnDeleteFile").hide();
 			}else{
@@ -685,8 +664,8 @@ width: 650px;
 						</tr>
 						<tr>
 							<th scope="row">지출내용<span class="font_red" style="display:none">*</span></th>
-							<td colspan="3" rowspan="3">
-							    <textarea id="expen_inf" name="expen_inf"style="text-indent:5px" placeholder="20자 이내로 작성" onkeyup="fn_textArea()"> </textarea><div id="textAreaRemain"></div>
+							<td colspan="3">
+							    <textarea id="expen_inf" name="expen_inf"style="text-indent:5px"> </textarea>
 							</td>
 						</tr>
 						

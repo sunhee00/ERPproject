@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>연별 매출 현황</title>
+    <title>월별 매출 현황</title>
     <jsp:include page="/WEB-INF/view/common/common_include.jsp"></jsp:include>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script type="text/javascript">
@@ -15,12 +15,12 @@
         // 페이징 설정
         var pageSize = 5;
         var pageBlockSize = 5;
-        function fn_aa(labels, dataVar) {
 
-            new Chart(document.getElementById("bar-chart"), {
-                type: 'bar',
+        function fn_aa(labels, dataVar) {
+            new Chart(document.getElementById("bar-chart-horizontal"), {
+                type: 'horizontalBar',
                 data: {
-                    labels: ["2023", "2022", "2021", "2020"],
+                    labels: labels,
                     datasets: [
                         {
                             label: "매출",
@@ -33,13 +33,13 @@
                     legend: {display: false},
                     title: {
                         display: true,
-                        text: '연별 매출 순이익'
+                        text: '월별 매출 순이익'
                     },
                     tooltips: {
                         callbacks: {
                             label: function (tooltipItem, data) {
                                 var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                                return value.toLocaleString() + "원"; // 라벨 (날짜)와 값을 함께 표시합니다.
+                                return value.toLocaleString() + "원";
                             }
                         }
                     }
@@ -100,7 +100,6 @@
             return colors;
         }
 
-        // 날짜를 'YYYY-MM-DD' 형식으로 포맷팅하는 함수
         function formatDate(date) {
             var year = date.getFullYear();
             var month = ('0' + (date.getMonth() + 1)).slice(-2);
@@ -108,13 +107,10 @@
             return year + '-' + month + '-' + day;
         }
 
-        /** OnLoad event */
         $(function () {
-            // 버튼 이벤트 등록
             fRegisterButtonClickEvent();
-            fn_saleYearList();
+            fn_saleMonthList();
         });
-
 
         /** 버튼 이벤트 등록 */
         function fRegisterButtonClickEvent() {
@@ -123,23 +119,23 @@
                 var btnId = $(this).attr('id');
                 switch (btnId) {
                     case 'btnSearch':
-                        var orderYear = $("#order_Year").val();
-                        if (orderYear === "") {
+                        var orderMonth = $("#order_month").val();
+                        if (orderMonth === "") {
                             alert("날짜를 선택해주세요.");
                             return;
                         }
-                        fn_saleYearList();
+                        fn_saleMonthList();
                         break;
                 }
             });
         }
 
-        function fn_saleYearList(pagenum) {
+        function fn_saleMonthList(pagenum) {
 
             pagenum = pagenum || 1;
 
             var param = {
-                order_year: $("#order_year").val(),
+                order_month: $("#order_month").val(),
                 pageSize: pageSize,
                 pageBlockSize: pageBlockSize,
                 pagenum: pagenum
@@ -147,43 +143,44 @@
 
             var listCallBack = function (returnValue) {
                 console.log(returnValue);
-                $("#listSaleYear").empty().append(returnValue);
+                $("#listSaleMonth").empty().append(returnValue);
                 var totalcnt = $("#totalcnt").val();
                 console.log("totalcnt: " + totalcnt);
                 if (totalcnt == 0) {
-                    alert("해당 연도에는 데이터가 존재하지 않습니다.");
+                    alert("해당 월에는 데이터가 존재하지 않습니다.");
                     $(".bar_items").css("display", "none");
                     console.log("pagenum:" + pagenum);
-                    var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_saleYearList');
+                    var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_saleMonthList');
                     console.log("paginationHtml: " + paginationHtml);
-                    $("#saleYearPagination").empty().append(paginationHtml);
+                    $("#saleMonthPagination").empty().append(paginationHtml);
                     $("#pageno").val(pagenum);
                     return;
                 }
                 console.log("pagenum:" + pagenum);
-                var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_saleYearList');
+                var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_saleMonthList');
                 console.log("paginationHtml: " + paginationHtml);
-                $("#saleYearPagination").empty().append(paginationHtml);
+                $("#saleMonthPagination").empty().append(paginationHtml);
                 $("#pageno").val(pagenum);
 
                 fn_chart();
             };
 
-            callAjax("/selSaY/saleYearList.do", "post", "text", false, param, listCallBack);
+            callAjax("/selSaM/saleMonthList.do", "post", "text", false, param, listCallBack);
         }
 
         function fn_chart() {
             var check = false;
             // 그래프 초기화
-            $("#bar-chart").remove();
-            $(".bar_items").empty().append('<canvas id="bar-chart" width="300" height="250"></canvas>');
+            $("#bar-chart-horizontal").remove();
+            $(".bar_items").empty().append('<canvas id="bar-chart-horizontal" width="300" height="250"></canvas>');
+            // 그래프 데이터 가져오기
             var param = {
-                order_year: $("#order_year").val()
+                order_month: $("#order_month").val()
             };
             var listCallBack = function (returnValue) {
                 for (var i in returnValue) {
-                    console.log(returnValue[i].order_year);
-                    if (returnValue[i].order_year == $("#order_year").val()) {
+                    console.log(returnValue[i].order_month);
+                    if (returnValue[i].order_month == $("#order_month").val()) {
                         check = true;
                         break;
                     }else {
@@ -196,9 +193,9 @@
 
 
                     for (var i = 0; i < returnValue.length; i++) {
-                        console.log(returnValue[i].order_year);
-                        labels.push(returnValue[i].order_year);
-                        dataVar.push(returnValue[i].year_total_profit);
+                        console.log(returnValue[i].order_month);
+                        labels.push(returnValue[i].order_month);
+                        dataVar.push(returnValue[i].tot_profit);
                     }
                     console.log("labels" + labels);
                     console.log("dataVar" + dataVar);
@@ -206,11 +203,9 @@
                     $(".bar_items").css("display", "block");
                 }
             };
-            callAjax("/selSaY/selectedYearChart.do", "post", "json", false, param, listCallBack);
+            callAjax("/selSaM/selectedMonthChart.do", "post", "json", false, param, listCallBack);
         }
-
     </script>
-
 </head>
 <body>
 <form id="myForm" action="" method="">
@@ -225,79 +220,70 @@
         <div id="container">
             <ul>
                 <li class="lnb">
-                    <!-- lnb 영역 -->
-                    <jsp:include
-                            page="/WEB-INF/view/common/lnbMenu.jsp"></jsp:include> <!--// lnb 영역 -->
+                    <jsp:include page="/WEB-INF/view/common/lnbMenu.jsp"></jsp:include>
                 </li>
                 <li class="contents">
-                    <!-- contents -->
-                    <h3 class="hidden">contents 영역</h3> <!-- content -->
+                    <h3 class="hidden">contents 영역</h3>
                     <div class="content">
                         <p class="Location">
-                            <a href="../dashboard/dashboard.do" class="btn_set home">메인으로</a> <span
-                                class="btn_nav bold">매출</span> <span class="btn_nav bold">연별 매출 현황
-								</span> <a href="../selSaY/saleYearList.do" class="btn_set refresh">새로고침</a>
+                            <a href="../dashboard/dashboard.do" class="btn_set home">메인으로</a>
+                            <span class="btn_nav bold">매출</span>
+                            <span class="btn_nav bold">월별 매출 현황</span>
+                            <a href="../selSaM/saleMonthList.do" class="btn_set refresh">새로고침</a>
                         </p>
 
-
                         <p class="conTitle">
-                            <span>연별 매출 현황</span> <span class="fr"></span>
+                            <span>월별 매출 현황</span><span class="fr"></span>
                         </p>
 
                         <!-- 검색창 영역 시작 -->
 
                         <div style="display:flex; justify-content:center; align-content:center; border:1px solid DeepSkyBlue; padding:10px 10px;">
-                            <label for="order_year"
-                                   style="font-size:15px; font-weight:bold; margin-right:10px; margin-top:6px; ">연 조회
-                                : </label>
-                            <input type="number" id="order_year" name="order_year" min="2020" placeholder="연도 입력"
+                            <label for="order_month"
+                                   style="font-size:15px; font-weight:bold; margin-right:10px; margin-top:6px; ">월 조회
+                                 </label>
+                            <input type="month" id="order_month" name="order_month" min="2023-01-01"
                                    style="height: 25px; width: 120px; margin-right: 15px;">
                             <a href="" class="btnType blue" id="btnSearch" name="btn"><span>검  색</span></a>
                         </div>
-
                         <!-- 검색창 영역 끝 -->
-
                         <div class="bar_items"
                              style="width: 60%; display: none; margin-left: auto; margin-right: auto;">
-                            <canvas id="bar-chart" width="300" height="250"></canvas>
+                            <canvas id="bar-chart-horizontal" width="300" height="250"></canvas>
                         </div>
-                        <div class="saleYearList">
+                        <div class="saleMonthList">
                             <div style="display:flex; flex-grow: 1; justify-content: space-evenly;">
-                                <div style="display:flex; flex-grow: 1; justify-content: space-evenly;">
-                                </div>
                             </div>
-                            <table class="col">
-                                <caption>caption</caption>
-                                <colgroup>
-                                    <col width="10%">
-                                    <col width="15%">
-                                    <col width="15%">
-                                    <col width="15%">
-                                    <col width="15%">
-                                    <col width="15%">
-                                </colgroup>
+                        </div>
+                        <table class="col">
+                            <caption>caption</caption>
+                            <colgroup>
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                            </colgroup>
 
-                                <thead>
-                                <tr>
-                                    <th scope="col">연도</th>
-                                    <th scope="col">총 판매량</th>
-                                    <th scope="col">총 매출</th>
-                                    <th scope="col">총 지출</th>
-                                    <th scope="col">총 순이익</th>
-                                    <th scope="col">전년대비 성장률</th>
-                                </tr>
-                                </thead>
-                                <tbody id="listSaleYear"></tbody>
-                            </table>
-                            <div class="paging_area" id="saleYearPagination"></div>
-                        </div> <!--// content -->
-                        <h3 class="hidden">풋터 영역</h3>
-                        <jsp:include page="/WEB-INF/view/common/footer.jsp"></jsp:include>
+                            <thead>
+                            <tr>
+                                <th scope="col">연월</th>
+                                <th scope="col">총 주문 건수</th>
+                                <th scope="col">매출</th>
+                                <th scope="col">매출 원가</th>
+                                <th scope="col">매출 총이익</th>
+                            </tr>
+                            </thead>
+                            <tbody id="listSaleMonth"></tbody>
+                        </table>
+                        <div class="paging_area" id="saleMonthPagination"></div>
+                    </div>
+                    <h3 class="hidden">풋터 영역</h3>
+                    <jsp:include page="/WEB-INF/view/common/footer.jsp"></jsp:include>
                 </li>
             </ul>
         </div>
     </div>
-
 
 </form>
 </body>

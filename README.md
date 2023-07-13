@@ -1,5 +1,5 @@
 # ERPproject
-<img src="./image/대광물산mainPage.png/>
+![대광물산mainPage](https://github.com/sunhee00/ERPproject/assets/104435431/b5accf54-fe29-4420-8188-23102f55f609)
 
 <br>
 

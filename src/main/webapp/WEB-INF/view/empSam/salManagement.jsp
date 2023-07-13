@@ -114,7 +114,7 @@
 		userInfo=info;
 		date=date.toString();
 		sal_date=date.substring(0,4)+'-'+date.substring(4);
-		console.log(sal_date);
+
 		// 모달 팝업
 		gfModalPop("#layer1");
 			

@@ -1,9 +1,13 @@
 # ERPproject
-ERP(Enterprise Resource Planning) System - 전사적 자원 관리 시스템
+<img src="./image/대광물산mainPage.png/>
 
 <br>
 
 ## 🖥️ 프로젝트 소개
+ - ERP란?
+   ERP(Enterprise Resource Planning) System - 전사적 자원 관리 시스템
+   :재무, 인사 관리, 제조, 공급망, 서비스, 조달 등 비즈니스의 여러 부문에서 자동화와 프로세스를 지원해 운영 효율성을 높이도록 돕는 소프트웨어 시스템
+   
  - 프로젝트 선정이유
    1. 비즈니스 프로세스를 개선하고 효율성을 향상시킬 수 있는 업무 자동화 솔루션을 개발한다.
    2. 회계, 인사, 영업, 매출 데이터를 처리하여 실무 현장에서 활용할 수 있는 개발 역량을 강화한다.
@@ -20,7 +24,7 @@ ERP(Enterprise Resource Planning) System - 전사적 자원 관리 시스템
 
 <br>
 
-## 🧑‍🤝‍🧑 맴버구성
+## 🧑‍🤝‍🧑 멤버구성
  - PM  : 강문주 - 결재관리, 공지사항, 공통코드관리, 월별결재관리
  - 팀원1 : 이선희 - 발주내역조회, 휴가신청 및 연차조회, 휴가신청내역, 급여관리, 급여조회
  - 팀원2 : 이은지 - 계정과목관리, 회계전표, 인사관리
@@ -47,9 +51,9 @@ ERP(Enterprise Resource Planning) System - 전사적 자원 관리 시스템
 - 개발언어
 >JAVA(1.8.0)
 
->JSP
+>JSP(2.3)
 
->JavaScript
+>JavaScript(1.0)
 
 >HTML5
 

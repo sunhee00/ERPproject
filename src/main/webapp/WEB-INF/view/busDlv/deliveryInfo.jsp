@@ -19,7 +19,7 @@
 	var pageBlockSize = 5;    
 	
 	
-	//로그인 쿠키
+	//로그인 세션
 	var loginIDck = null;
 	
 	/** OnLoad event */ 
@@ -27,7 +27,7 @@
 		
 		// 버튼 이벤트 등록
 		fRegisterButtonClickEvent();
-		//로그인 쿠키값 넣어주기
+		//로그인 세션값 넣어주기
 		loginIDck = $("#loginIDck").val();
 		
 		// 제품 대분류
@@ -96,7 +96,6 @@
 		var listCallBack = function(returnvalue) {
 			console.log(JSON.stringify(returnvalue));
 			
-			console.log("reval"+returnvalue);
 			$("#listBusDlv").empty().append(returnvalue);
 			
 			var  totalcnt = $("#totalcnt").val();
@@ -125,6 +124,7 @@
 		gfModalPop("#dlvForm");
 			
 	}
+	
 	//모달 초기화
 	function popupinit() {
 		$("#ltypecombo").val("");		
@@ -132,14 +132,10 @@
 		$("#ptypecombo").val("");
 		$("#dlv_amt").val("");
 	}
+	
 	//발주신청함수
 	function fn_dlvInsert() {
-		//발주수량제한
-		var maxNum = 3;
-		if($("#dlv_amt").val().length > maxNum) {
-			alert("발주수량초과.3자리로 입력해주세요");
-			return;
-		}
+		
 		
 		var param = {
 				ltypecombo : $("#ltypecombo").val()
@@ -149,6 +145,7 @@
 				,dlv_amt : $("#dlv_amt").val()
 				,appro_type_cd : $("#appro_type_cd").val()
 		}
+		
 		var dlvInsertCallback = function (reval) {
 			
 			console.log(reval.dlvApplication);
@@ -175,12 +172,17 @@
 	
 	//data유효성 체크
 	function fn_data_validation() {
+		//유효성 체크 변수
 		var check=true;
+		
+		var valiList = [];
 		var ltypecombo = $("#ltypecombo").val();
 		var mtypecombo = $("#mtypecombo").val();
 		var ptypecombo = $("#ptypecombo").val();
 		var dlv_amt = $("#dlv_amt").val();
-		var valiList = [ltypecombo, mtypecombo, ptypecombo , dlv_amt];
+		
+		valiList.push(ltypecombo, mtypecombo, ptypecombo, dlv_amt);
+		
 		for(var i in valiList) {
 			console.log(valiList[i]);
 			if(valiList[i] == null || valiList[i] == "") {
@@ -191,10 +193,19 @@
 		console.log(check);
 		if(check == false) {
 			alert("모든 항목을 채워주세요");
-		}else {
-			fn_dlvInsert();
+			return;
 		}
 		
+		//발주수량제한
+		var maxNum = 999;
+		var minNum = 1;
+		if(dlv_amt > maxNum || minNum > dlv_amt) {
+			alert("발주수량초과.3자리로 입력해주세요");
+			return;
+		}
+		
+		fn_dlvInsert();
+			
 	}
 	//반려사유조회 모달창 오픈
 	function fn_openpopup2(dlv_no) {

@@ -25,6 +25,7 @@
 		// 버튼 이벤트 등록
 		fRegisterButtonClickEvent();
 		
+		//급여명세서표 숨기기
 		$("#empSasTax").css("visibility","hidden");
 		$("#empSasResult").css("visibility","hidden");
 		
@@ -114,23 +115,7 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 
-
-	
-	
-	
-	
-	
-	
-	
 </script>
 
 </head>

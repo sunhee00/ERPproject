@@ -49,7 +49,6 @@
                and STR_TO_DATE(#{dlv_edate}, '%Y-%m-%d') >= dlv_date
             </if>      
          </where>	
-	
 	</select>
 	
 	<!-- 반려사유 상세조회 -->
@@ -82,7 +81,6 @@
 				,now()
 			)
 	</insert>
-	
 	<!-- 결재테이블에 insert -->
 	<insert id="approIn">
 		<selectKey resultType="int" keyProperty="appro_no" order="BEFORE">

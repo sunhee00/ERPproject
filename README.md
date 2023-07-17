@@ -26,7 +26,7 @@
 
 ## 🧑‍🤝‍🧑 멤버구성
  - PM  : 강문주 - 결재관리, 공지사항, 공통코드관리, 월별결재관리
- - 팀원1 : 이선희 - 발주내역조회, 휴가신청 및 연차조회, 휴가신청내역, 급여관리, 급여조회
+ - 팀원1 : 이선희(본인) - 발주내역조회, 휴가신청 및 연차조회, 휴가신청내역, 급여관리, 급여조회 ([구현상세](https://github.com/sunhee00/ERPproject/wiki/%EC%9D%B4%EC%84%A0%ED%9D%AC(%EB%B3%B8%EC%9D%B8)-%E2%80%90-%EB%B0%9C%EC%A3%BC%EB%82%B4%EC%97%AD%EC%A1%B0%ED%9A%8C,-%ED%9C%B4%EA%B0%80%EC%8B%A0%EC%B2%AD-%EB%B0%8F-%EC%97%B0%EC%B0%A8%EC%A1%B0%ED%9A%8C,-%ED%9C%B4%EA%B0%80%EC%8B%A0%EC%B2%AD%EB%82%B4%EC%97%AD,-%EA%B8%89%EC%97%AC%EA%B4%80%EB%A6%AC,-%EA%B8%89%EC%97%AC%EC%A1%B0%ED%9A%8C))
  - 팀원2 : 이은지 - 계정과목관리, 회계전표, 인사관리
  - 팀원3 : 이수경 - 영업계획, 영업실적조회, 고객기업관리, 납품기업관리, 주문관리
  - 팀원4 : 조하나 - 지출결의서 신청, 지출결의서 조회 및 승인, 마이페이지
@@ -73,7 +73,7 @@
 <br>
 
 ## 📌 주요 기능
-#### 💵회계 - <a href="" >상세보기 - WIKI 이동</a>
+#### 💵회계
 - 계정과목관리
   1. <a href="src/main/java/kr/happyjob/study/accAcm" >java file</a>
   2. <a href="src/main/resources/sql/accAcm" >mapper file</a>
@@ -94,7 +94,7 @@
   2. <a href="src/main/resources/sql/accAcs" >mapper file</a>
   3. <a href="src/main/webapp/WEB-INF/view/accAcs" >jsp file</a>
 
-#### 📞영업 - <a href="" >상세보기 - WIKI 이동</a>
+#### 📞영업
 - 영업계획
   1. <a href="src/main/java/kr/happyjob/study/busSap" >java file</a>
   2. <a href="src/main/resources/sql/busSap" >mapper file</a>
@@ -130,7 +130,7 @@
   2. <a href="src/main/resources/sql/busPd" >mapper file</a>
   3. <a href="src/main/webapp/WEB-INF/view/busPd" >jsp file</a>
 
-#### 👤인사 - <a href="" >상세보기 - WIKI 이동</a>
+#### 👤인사
 - 인사관리
   1. <a href="src/main/java/kr/happyjob/study/emp" >java file</a>
   2. <a href="src/main/resources/sql/emp" >mapper file</a>
@@ -166,7 +166,7 @@
   2. <a href="src/main/resources/sql/empApm" >mapper file</a>
   3. <a href="src/main/webapp/WEB-INF/view/empApm" >jsp file</a>
 
-#### 📊매출 - <a href="" >상세보기 - WIKI 이동</a>
+#### 📊매출
 - 일별매출현황
   1. <a href="src/main/java/kr/happyjob/study/selSaD" >java file</a>
   2. <a href="src/main/resources/sql/selSaD" >mapper file</a>
@@ -182,13 +182,13 @@
   2. <a href="src/main/resources/sql/selSaY" >mapper file</a>
   3. <a href="src/main/webapp/WEB-INF/view/selSaY" >jsp file</a>
 
-#### 🗓달력 - <a href="" >상세보기 - WIKI 이동</a>
+#### 🗓달력
 - 월별결재관리
   1. <a href="src/main/java/kr/happyjob/study/calDay" >java file</a>
   2. <a href="src/main/resources/sql/calDay" >mapper file</a>
   3. <a href="src/main/webapp/WEB-INF/view/calDay" >jsp file</a>
   
-#### 🔍운영 - <a href="" >상세보기 - WIKI 이동</a> 
+#### 🔍운영
 - 공지사항
   1. <a href="src/main/java/kr/happyjob/study/mngNot" >java file</a>
   2. <a href="src/main/resources/sql/MngNot" >mapper file</a>

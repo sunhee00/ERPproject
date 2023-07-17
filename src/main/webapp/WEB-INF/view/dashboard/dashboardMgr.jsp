@@ -92,7 +92,7 @@ click-able rows
 				});	
 			
 			vuevar = new Vue({
-				  el: '#vuevar', 
+				  el: '#vuevar',
 				  data: {
 					           inputtext:"",
 							  inputnum:99,

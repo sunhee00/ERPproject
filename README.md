@@ -5,7 +5,7 @@
 
 ## 🖥️ 프로젝트 소개
  - ERP란?
-   ERP(Enterprise Resource Planning) System - 전사적 자원 관리 시스템
+   ERP(Enterprise Resource Planning) System - 전사적 자원 관리 시스템<br>
    :재무, 인사 관리, 제조, 공급망, 서비스, 조달 등 비즈니스의 여러 부문에서 자동화와 프로세스를 지원해 운영 효율성을 높이도록 돕는 소프트웨어 시스템
    
  - 프로젝트 선정이유
@@ -75,72 +75,26 @@
 ## 📌 주요 기능
 #### 💵회계
 - 계정과목관리
-  1. <a href="src/main/java/kr/happyjob/study/accAcm" >java file</a>
-  2. <a href="src/main/resources/sql/accAcm" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/accAcm" >jsp file</a>
-  
 - 지출결의서 신청
-  1. <a href="src/main/java/kr/happyjob/study/accEpr" >java file</a>
-  2. <a href="src/main/resources/sql/accEpr" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/accEpr" >jsp file</a>
-  
 - 지출결의서 조회 및 승인
-  1. <a href="src/main/java/kr/happyjob/study/accEps" >java file</a>
-  2. <a href="src/main/resources/sql/accEps" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/accEps" >jsp file</a>
-  
 - 회계전표
-  1. <a href="src/main/java/kr/happyjob/study/accAcs" >java file</a>
-  2. <a href="src/main/resources/sql/accAcs" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/accAcs" >jsp file</a>
-
+- 
 #### 📞영업
 - 영업계획
-  1. <a href="src/main/java/kr/happyjob/study/busSap" >java file</a>
-  2. <a href="src/main/resources/sql/busSap" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/busSap" >jsp file</a>
-  
 - 영업실적조회
-  1. <a href="src/main/java/kr/happyjob/study/busSas" >java file</a>
-  2. <a href="src/main/resources/sql/busSas" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/busSas" >jsp file</a>
-  
 - 고객기업 관리
-  1. <a href="src/main/java/kr/happyjob/study/busClm" >java file</a>
-  2. <a href="src/main/resources/sql/BusClm" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/busClm" >jsp file</a>
-  
 - 납품기업 관리
-  1. <a href="src/main/java/kr/happyjob/study/busSpm" >java file</a>
-  2. <a href="src/main/resources/sql/BusSpm" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/busSpm" >jsp file</a>
-  
 - 주문관리(수주관리)
-  1. <a href="src/main/java/kr/happyjob/study/busOdm" >java file</a>
-  2. <a href="src/main/resources/sql/BusOdm" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/busOdm" >jsp file</a>
-  
 - 발주내역조회
   1. <a href="src/main/java/kr/happyjob/study/busDlv" >java file</a>
   2. <a href="src/main/resources/sql/busDlv" >mapper file</a>
   3. <a href="src/main/webapp/WEB-INF/view/busDlv" >jsp file</a>
   
 - 제품정보
-  1. <a href="src/main/java/kr/happyjob/study/busPd" >java file</a>
-  2. <a href="src/main/resources/sql/busPd" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/busPd" >jsp file</a>
 
 #### 👤인사
 - 인사관리
-  1. <a href="src/main/java/kr/happyjob/study/emp" >java file</a>
-  2. <a href="src/main/resources/sql/emp" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/emp" >jsp file</a>
-  
 - 마이페이지
-  1. <a href="src/main/java/kr/happyjob/study/empMpg" >java file</a>
-  2. <a href="src/main/resources/sql/empMpg" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/empMpg" >jsp file</a>
-  
 - 휴가 신청 및 연차 조회
   1. <a href="src/main/java/kr/happyjob/study/empVcp" >java file</a>
   2. <a href="src/main/resources/sql/empVcp" >mapper file</a>
@@ -160,41 +114,17 @@
   1. <a href="src/main/java/kr/happyjob/study/empSas" >java file</a>
   2. <a href="src/main/resources/sql/empSas" >mapper file</a>
   3. <a href="src/main/webapp/WEB-INF/view/empSas" >jsp file</a>
-  
+
 - 결재관리
-  1. <a href="src/main/java/kr/happyjob/study/empApm" >java file</a>
-  2. <a href="src/main/resources/sql/empApm" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/empApm" >jsp file</a>
 
 #### 📊매출
 - 일별매출현황
-  1. <a href="src/main/java/kr/happyjob/study/selSaD" >java file</a>
-  2. <a href="src/main/resources/sql/selSaD" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/selSaD" >jsp file</a>
-  
 - 월별매출현황
-  1. <a href="src/main/java/kr/happyjob/study/selSaM" >java file</a>
-  2. <a href="src/main/resources/sql/selSaM" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/selSaM" >jsp file</a>
-  
 - 연별매출현황
-  1. <a href="src/main/java/kr/happyjob/study/selSaY" >java file</a>
-  2. <a href="src/main/resources/sql/selSaY" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/selSaY" >jsp file</a>
 
 #### 🗓달력
 - 월별결재관리
-  1. <a href="src/main/java/kr/happyjob/study/calDay" >java file</a>
-  2. <a href="src/main/resources/sql/calDay" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/calDay" >jsp file</a>
   
 #### 🔍운영
 - 공지사항
-  1. <a href="src/main/java/kr/happyjob/study/mngNot" >java file</a>
-  2. <a href="src/main/resources/sql/MngNot" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/mngNot" >jsp file</a>
-  
 - 공통코드 관리
-  1. <a href="src/main/java/kr/happyjob/study/system" >java file</a>
-  2. <a href="src/main/resources/sql/system" >mapper file</a>
-  3. <a href="src/main/webapp/WEB-INF/view/system" >jsp file</a>

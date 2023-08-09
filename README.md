@@ -25,51 +25,42 @@
 <br>
 
 ## 🧑‍🤝‍🧑 멤버구성
- - PM  : 강문주 - 결재관리, 공지사항, 공통코드관리, 월별결재관리
- - 팀원1 : 이선희(본인) - 발주내역조회, 휴가신청 및 연차조회, 휴가신청내역, 급여관리, 급여조회 ([구현상세](https://github.com/sunhee00/ERPproject/wiki/%EC%9D%B4%EC%84%A0%ED%9D%AC(%EB%B3%B8%EC%9D%B8)-%E2%80%90-%EB%B0%9C%EC%A3%BC%EB%82%B4%EC%97%AD%EC%A1%B0%ED%9A%8C,-%ED%9C%B4%EA%B0%80%EC%8B%A0%EC%B2%AD-%EB%B0%8F-%EC%97%B0%EC%B0%A8%EC%A1%B0%ED%9A%8C,-%ED%9C%B4%EA%B0%80%EC%8B%A0%EC%B2%AD%EB%82%B4%EC%97%AD,-%EA%B8%89%EC%97%AC%EA%B4%80%EB%A6%AC,-%EA%B8%89%EC%97%AC%EC%A1%B0%ED%9A%8C))
- - 팀원2 : 이은지 - 계정과목관리, 회계전표, 인사관리
- - 팀원3 : 이수경 - 영업계획, 영업실적조회, 고객기업관리, 납품기업관리, 주문관리
- - 팀원4 : 조하나 - 지출결의서 신청, 지출결의서 조회 및 승인, 마이페이지
- - 팀원5 : 박동근 - 제품정보, 일별매출현황, 월별매출현황, 연별매출현황
+ - 강문주 - 결재관리, 공지사항, 공통코드관리, 월별결재관리
+ - 이선희 - 발주내역조회, 휴가신청 및 연차조회, 휴가신청내역, 급여관리, 급여조회 ([구현상세](https://github.com/sunhee00/ERPproject/wiki/%EC%9D%B4%EC%84%A0%ED%9D%AC(%EB%B3%B8%EC%9D%B8)-%E2%80%90-%EB%B0%9C%EC%A3%BC%EB%82%B4%EC%97%AD%EC%A1%B0%ED%9A%8C,-%ED%9C%B4%EA%B0%80%EC%8B%A0%EC%B2%AD-%EB%B0%8F-%EC%97%B0%EC%B0%A8%EC%A1%B0%ED%9A%8C,-%ED%9C%B4%EA%B0%80%EC%8B%A0%EC%B2%AD%EB%82%B4%EC%97%AD,-%EA%B8%89%EC%97%AC%EA%B4%80%EB%A6%AC,-%EA%B8%89%EC%97%AC%EC%A1%B0%ED%9A%8C))
+ - 이은지 - 계정과목관리, 회계전표, 인사관리
+ - 이수경 - 영업계획, 영업실적조회, 고객기업관리, 납품기업관리, 주문관리
+ - 조하나 - 지출결의서 신청, 지출결의서 조회 및 승인, 마이페이지
+ - 박동근 - 제품정보, 일별매출현황, 월별매출현황, 연별매출현황
 
 <br>
+## ✏️ 기획
+- 아키텍처
+
+
 
 ## ⚙️ 개발 환경
 - 개발환경
 >Eclipse(eGovFrameDev-3.6.0)
-
 >My SQL(5.1.30)
-
 >SpringFramework(4.3.0)
-
 >SVN
-
 >eXERD
-
 >apache-tomcat(8.0)
 
 - 개발언어
 >JAVA(1.8.0)
-
 >JSP(2.3)
-
 >JavaScript(1.0)
-
 >HTML5
-
 >CSS3
-
 >jQuery(3.4)
-
 >XML
 
 - 개발도구
 >AJAX
-
 >MYBATIS(3.0.6)
-
 >JSON
-  
+ 
 <br>
 
 ## 📌 주요 기능

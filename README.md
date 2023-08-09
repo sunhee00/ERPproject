@@ -52,7 +52,7 @@ SpringFramework(4.3.0), jQuery(3.4), MYBATIS(3.0.6)
 
 >개발툴
 
-Eclipse(eGovFrameDev-3.6.0), eXERD, JSON, AJAX
+Eclipse(eGovFrameDev-3.6.0), eXERD, toad for MySQL, JSON, AJAX
 
 >서버
 

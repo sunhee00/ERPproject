@@ -45,7 +45,7 @@
 
 >개발언어
 
-JAVA(1.8.0), JSP(2.3), JavaScript(1.0), HTML5, CSS3, XML
+JAVA(8), JSP(2.3), JavaScript(1.0), HTML5, CSS3, XML
 
 >라이브러리/프레임워크
 
